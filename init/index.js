@@ -1257,20 +1257,18 @@ const sampleListings = [
     category: "lakefront"
   }
 ];
-
 const initDB = async () => {
   try {
     await Listing.deleteMany({});
-    
-    // Sabhi 120 listings ko specified owner ID aur empty reviews assign karna
+
+    // Sirf owner ID set karna (reviews ko modify nahi kiya)
     const preparedData = sampleListings.map((item) => ({
       ...item,
-      owner: new mongoose.Types.ObjectId("6a8eede920c037efba4040f4"),
-      reviews: []
+      owner: new mongoose.Types.ObjectId("6aa1428784f75fc4b10f19cf"),
     }));
 
     await Listing.insertMany(preparedData);
-    console.log(`Success! Total ${preparedData.length} listings initialized across all 12 categories.`);
+    console.log(`Success! Total ${preparedData.length} listings initialized.`);
   } catch (err) {
     console.error("Initialization error:", err);
   } finally {
