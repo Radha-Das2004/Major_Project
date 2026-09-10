@@ -30,7 +30,7 @@ module.exports.createUser =async(req,res) =>{
 }
 
 module.exports.renderLoginForm = (req,res) =>{
-    res.render("user/loginUp");
+    res.render("user/loginUP.ejs");
 }
 
 module.exports.loginUser =async(req,res) =>{

@@ -72,7 +72,7 @@ module.exports.searchSuggestions = async (req, res) => {
 
 
 module.exports.renderNewForm =  (req,res) => {
-    res.render("listings/new.ejs");
+    res.render("Listings/new.ejs");
 }
 
 module.exports.renderNewFormPost = async (req, res,next) => {

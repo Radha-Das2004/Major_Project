@@ -9,7 +9,7 @@
                 <img src="<%=  listing.image.url %>" class="card-img-top show-image" alt="<%= listing.image.filename %>">
                 <div class="card-body">
                     <p class="card-text">
-                        <b>Owned by : <%= listing.owner.username %></b>
+                        <b>Owned by : <%= listing.owner ? listing.owner.username : "User" %></b>
                     </p>
                     <p class="card-text">
                         <b>Description :</b> <%= listing.description %>
