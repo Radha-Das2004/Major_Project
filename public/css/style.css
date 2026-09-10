@@ -1,0 +1,329 @@
+body{
+     font-family: "Plus Jakarta Sans", sans-serif;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+}
+
+.container{
+    flex: 1;
+}
+/* Search */
+.search-btn{
+    background-color: #fe424d !important;
+    color: white !important;
+    border-radius: 25px !important;
+    padding: 0rem 1rem;
+}
+
+
+.search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+.search-inp{
+    border-radius: 25px !important;
+    padding: 0.5rem 3rem 0.5rem 3rem !important;
+    text-align: center;
+}
+
+.search-btn {
+     transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.search-btn:active {
+    transform: scale(0.95);
+    background-color: #d9363e !important;
+}
+
+/* Search Suggestions */
+.search-container {
+    position: relative;
+    width: 300px;
+}
+
+#searchSuggestions {
+    position: absolute;
+    top: 55px;
+    left: 0;
+    width: 100%;
+    max-height: 400px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    overflow-x: hidden;
+}
+
+.search-suggestion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px;
+    cursor: pointer;
+}
+
+.search-suggestion:hover {
+    background-color: #f5f5f5;
+}
+
+.search-suggestion i {
+    color: #fe424d;
+}
+
+.search-suggestion span {
+    color: #333;
+    font-size: 15px;
+}
+.navbar{
+    height: 5rem;
+    background-color: white;
+}
+
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+
+.nav-link { 
+    color: #222222 !important;
+}
+
+/* footer */
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-brand,
+.f-info-socials{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.f-info-socials i {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+
+}
+
+.f-info{
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+}
+
+/*  Card  */
+.listing-card{
+    border : none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+.card-body{
+    padding: 0 !important;
+}
+
+.card-body p{
+    font-weight: 400;
+}
+
+.listing-link{
+    text-decoration: none;
+}
+
+.card-img-overlay{
+    opacity: 0; 
+}
+
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: rgb(228, 228, 228);
+}
+
+.add-btn{
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
+}
+
+/* Edit Page */
+.edit-btn{
+    background-color: #fe424d !important;
+    color: white !important;
+    border: none !important;
+}
+
+
+/* Show page */
+.show-image{
+    height: 30vh;
+}
+
+.btns{
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.show-card{
+   padding-left: 0 !important;
+   padding-right: 0 !important;
+}
+
+
+.filter-wrapper {
+    position: relative;
+    width: 1000px;      /* 700px se badha ke itna kiya taaki Farms tak fit ho */
+    margin-top: 1rem;
+    overflow: hidden;
+}
+
+#filters {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1020px;       /* wrapper jitni hi width */
+    padding: 0 4.5rem;
+    box-sizing: border-box;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-right: 3rem;
+    opacity: 0.7;
+    flex: 0 0 auto;
+}
+
+.filter a {
+    text-decoration: none;
+    color: black;
+    font-size: 0.85rem;
+}
+
+.filter p {
+    color: black;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.filter:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.arrow-btn-wrapper {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+#slide-left-wrapper {
+    left: 0;
+    background: linear-gradient(to right, white 60%, transparent);
+    justify-content: flex-start;
+}
+
+#slide-right-wrapper {
+    right: 5rem;
+    background: linear-gradient(to left, white 60%, transparent);
+    justify-content: flex-end;
+}
+
+.arrow-btn {
+    position: relative;
+    background: white;
+    border: 1px solid #d3d3d3;
+    border-radius: 50%;
+    min-width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: opacity 0.2s;
+}
+
+/* Check Radio Button */
+.container-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.radio{
+    padding:1rem;
+}
+
+.tax-info{
+    display: none;
+}
+
+.tax-toggle {
+    border: 1px solid #b0b0b0;
+    border-radius: 12px;
+    height: 3.25rem;
+    padding: 0.5rem 1rem !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 250px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+/* Reverse layout ko override karke switch ko left me set karne ke liye */
+.tax-toggle.form-check-reverse {
+    flex-direction: row-reverse; 
+}
+
+/* Switch (Checkbox) styling */
+.tax-toggle .form-check-input {
+    float: none !important;
+    margin: 0 !important;
+    cursor: pointer;
+    font-size: 1.15rem;
+}
+
+/* Label text styling */
+.tax-toggle .form-check-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #222;
+    cursor: pointer;
+    user-select: none;
+    padding-left: 0.75rem;
+}
+
+/* Hover effect */
+.tax-toggle:hover {
+    border-color: #000;
+}

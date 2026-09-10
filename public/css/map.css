@@ -1,0 +1,31 @@
+.map-container{
+    height: 300px; 
+    width: 80%; 
+    border-radius: 12px;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+/*  Custom 3D Pin styling */ 
+.my-pin {
+    background: linear-gradient(135deg, #ff385c, #d70466);
+    width: 38px;
+    height: 38px;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border: 2px solid #fff;
+}
+.my-pin i {
+    transform: rotate(45deg);
+    color: #fff;
+    font-size: 15px;
+}
+/* Leaflet ka default white square box hatane ke liye */
+.leaflet-div-icon {
+    background: transparent !important;
+    border: none !important;
+}
