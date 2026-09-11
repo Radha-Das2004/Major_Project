@@ -1,41 +1,39 @@
 <% layout("/layouts/boilerplate")  %>
-    <div class="row mt-3">
-        <div class="col-8 offset-3">
-
-      
-            <h3><%= listing.title %></h3>
+    <div class="row mt-4 pt-3 justify-content-center">
+        <div class="col-12 col-md-8 mb-2 px-3">
+                <h3 class="fw-bold"><%= listing.title %></h3>
         </div>
-            <div class="card col-6 offset-3 show-card listing-card">
-                <img src="<%=  listing.image.url %>" class="card-img-top show-image" alt="<%= listing.image.filename %>">
-                <div class="card-body">
-                    <p class="card-text">
+            <div class="card col-12 col-md-8 show-card listing-card border-0 px-3">
+                <img src="<%=  listing.image.url %>" class="card-img-top show-image rounded-4" alt="<%= listing.image.filename %>" style="height: 22rem; object-fit: cover; width: 100%;">
+                <div class="card-body px-1 py-3">
+                    <p class="card-text mb-2">
                         <b>Owned by : <%= listing.owner ? listing.owner.username : "User" %></b>
                     </p>
-                    <p class="card-text">
+                    <p class="card-text mb-2">
                         <b>Description :</b> <%= listing.description %>
                     </p>
-                    <p class="card-text">
+                    <p class="card-text mb-2">
                         <b>Price :</b> &#8377 <%= listing.price.toLocaleString("en-IN") %>
                     </p>
-                    <p class="card-text">
+                    <p class="card-text mb-2">
                         <b>Location :</b> <%= listing.location %>
                     </p>
-                    <p class="card-text">
+                    <p class="card-text mb-2">
                         <b>Country :</b> <%= listing.country %>
                     </p>
                 </div>
             </div>
-            <ul>
+           
             <% if(currUser && listing.owner &&  currUser._id.equals(listing.owner._id)) { %>
-                <div class="btns">
-                    <a href="/listings/<%= listing._id %>/edit" class="btn btn-outline-primary col-1 offset-3">Edit</a>
+                <div class="btns col-12 col-md-8 d-flex gap-3 mb-4 px-3">
+                    <a href="/listings/<%= listing._id %>/edit" class="btn btn-outline-primary px-4">Edit</a>
             
-                    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE">
-                            <button class="btn btn-outline-danger offset-5">Delete</button>
+                    <form method="post" action="/listings/<%= listing._id %>?_method=DELETE" class="m-0">
+                            <button class="btn btn-outline-danger px-4">Delete</button>
                     </form>
                 </div>      
              <% } %>
-           <div class="col-8 offset-3 mb-3" >
+           <div class="col-12 col-md-8 mb-3 px-3 mx-auto" >
                 <% if(currUser) { %>
                     <hr/>
                     <h4>Leave & Review</h4>
@@ -70,20 +68,22 @@
                <% if(listing.reviews.length > 0) { %>
                  <hr/>
                     <h4>Reviews</h4>
-                <div class="row">
+                <div class="row g-3">
                     <p><b>All Reviews</b></p>
                     <% for(let review of listing.reviews) {%>
-                        <div class="card col-5 ms-3 mb-3">
-                            <div class="card-body mt-3">
-                                <h5 class="card-title">@<%= review.author.username %></h5>
-                                <p class="card-text"><%= review.comment %></p>
+                        <div class="col-12 col-md-6">
+                            <div class="card h-100 p-3 shadow-sm border rounded-3">
+                                <div class="card-body p-0">
+                                <h5 class="card-title fw-bold">@<%= review.author ? review.author.username : "Anonymous" %></h5>
+                                <p class="card-text text-muted mb-3"><%= review.comment %></p>
                                 
                                 <p class="starability-result card-text mb-2" data-rating="<%= review.rating %>"></p>
                                 <% if(currUser && review.author &&  currUser._id.equals(review.author._id)) { %>
-                                    <form method="post" class="mb-3" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                                        <button class="btn btn-outline-danger">Delete</button>
+                                    <form method="post" class="mb-3" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="m-0">
+                                        <button class="btn btn-sm btn-outline-danger">Delete</button>
                                     </form>
                                 <% } %>
+                                </div>
                             </div>
                         </div>
                     <% } %>
@@ -91,19 +91,19 @@
                 <% } %>
            </div>
            
-           <div class="col-8 offset-3 mb-5">
+           <div class="col-12 col-md-8 mb-5 px-3 mx-auto">
                 <!-- Map Section -->
                 <div>
                     <h3>Where you'll be</h3>
-                    <div id="map" class="map-container"></div>
+                    <div id="map" class="map-container rounded-4 shadow-sm" style="height: 350px; width: 100%;" ></div>
                 </div>
         </div>
     </div>
 
     <!-- 1. Listing Data ko window variables me save karein (EJS execution yahan hogi) -->
 <script>
-   const coordinates = JSON.parse('<%- JSON.stringify(listing.geometry && listing.geometry.coordinates && listing.geometry.coordinates.length ? listing.geometry.coordinates : [77.2090, 28.6139]) %>');
-    const listingTitle = "<%= listing.title %>";
+        const coordinates = JSON.parse('<%- JSON.stringify(listing.geometry && listing.geometry.coordinates && listing.geometry.coordinates.length ? listing.geometry.coordinates : [77.2090, 28.6139]) %>');
+            const listingTitle = "<%= listing.title %>";
 </script>
 
 <!-- 2. Apni external map.js file link karein -->

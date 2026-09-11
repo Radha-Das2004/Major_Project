@@ -8,29 +8,29 @@ module.exports.index = async (req, res) => {
     const { category, search } = req.query;
 
     let filter = {};
+    if (search) {
+            const regex = new RegExp(search, "i");
+            filter.$or = [
+                { location: regex },
+                { country: regex }
+            ];
+        } else if (category) {
+            filter.category = category;
+        }
 
-   if (search) {
-    const regex = new RegExp(search, "i");
+        // Pehle listings fetch karein taaki total count mil jaye
+        const allListings = await Listing.find(filter);
+        const count = allListings.length;
 
-    filter.$or = [
-        { location: regex },
-        { country: regex }
-    ];
-
-    req.flash("success", `Search results for "${search}"`);
-    res.locals.success = req.flash("success");
-
-    } else if (category) {
-
-        filter.category = category;
-
-        req.flash("success", `Showing ${category} listings`);
-        res.locals.success = req.flash("success");
-    }
-
-    const allListings = await Listing.find(filter);
-
-    res.render("Listings/index.ejs", { allListings });
+        // Flash message me count add karein
+        if (search) {
+            req.flash("success", `Found ${count} ${count === 1 ? 'listing' : 'listings'} for "${search}"`);
+            res.locals.success = req.flash("success");
+        } else if (category) {
+            req.flash("success", `Showing ${count} ${count === 1 ? 'listing' : 'listings'} for "${category}"`);
+            res.locals.success = req.flash("success");
+        }
+        res.render("Listings/index.ejs", { allListings });
 };
 
 

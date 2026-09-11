@@ -78,7 +78,8 @@ body{
     font-size: 15px;
 }
 .navbar{
-    height: 5rem;
+   min-height: 5rem; 
+   height: auto;
     background-color: white;
 }
 
@@ -118,7 +119,9 @@ body{
 }
 
 .f-info{
-    height: 8rem;
+    min-height: 8rem;
+     height: auto; 
+     padding: 1.5rem 0;
     background-color: #ebebeb;
     display: flex;
     flex-wrap: wrap;
@@ -191,8 +194,9 @@ body{
 
 
 .filter-wrapper {
-    position: relative;
-    width: 1000px;      /* 700px se badha ke itna kiya taaki Farms tak fit ho */
+     position: relative;
+    width: 100%; 
+    max-width: 100%;     /* 700px se badha ke itna kiya taaki Farms tak fit ho */
     margin-top: 1rem;
     overflow: hidden;
 }
@@ -200,9 +204,9 @@ body{
 #filters {
     display: flex;
     align-items: center;
-    overflow: hidden;
+    overflow-x: auto;
     white-space: nowrap;
-    width: 1020px;       /* wrapper jitni hi width */
+    width: 100%;   /* wrapper jitni hi width */
     padding: 0 4.5rem;
     box-sizing: border-box;
 }

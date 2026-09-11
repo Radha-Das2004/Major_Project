@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate")  %>
 <body>
-    <div class="container-button">
-            <div class="filter-wrapper">
+    <div class="container-button d-flex align-items-center justify-content-between flex-wrap gap-2 my-3"">
+            <div class="filter-wrapper d-flex align-items-center">
                         <div id="slide-left-wrapper" class="arrow-btn-wrapper">
                             <button id="slide-left" class="arrow-btn"><i class="fa-solid fa-chevron-left"></i></button>
                         </div>
@@ -73,21 +73,23 @@
             <label class="form-check-label" for="flexSwitchCheckDefault">Display total after taxes</label>
         </div>
     </div>
-    <div class="row row-cols-lg-3 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-3 mt-3">
          <% for(let listing of allListings ) { %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
-                <div class="card col listing-card" style="width: 26rem;" >
-                <img src="<%= listing.image.url %>" class="card-img-top" alt="<%= listing.filename %>" style="height: 20rem;">
-                <div class="card-img-overlay"><%= listing.title %></div>
-                <div class="card-body">
-                    <p class="card-text">
-                        <%= listing.title %> <br/>
-                       &#8377; <%= listing.price %> /night
-                      <i class="tax-info"> &nbsp; &nbsp; +18% GST</i>
-                    </p>
+            <div class="col">
+                <a href="/listings/<%= listing._id %>" class="listing-link text-decoration-none">
+                <div class="card listing-card border-0 h-100">
+                    <img src="<%= listing.image.url %>" class="card-img-top rounded-4" alt="<%= listing.filename %>" style="height: 20rem; object-fit: cover;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body px-1 py-2">
+                        <p class="card-text text-dark">
+                            <b><%= listing.title %></b> <br/>
+                            &#8377; <%= listing.price.toLocaleString("en-IN") %> /night
+                            <i class="tax-info text-muted"> &nbsp; &nbsp; +18% GST</i>
+                        </p>
+                    </div>
                 </div>
-             </div>
             </a>
+            </div>
         <% } %>
     </div>
     

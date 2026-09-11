@@ -1,0 +1,97 @@
+
+/* =========================================================
+   Mobile View Specific Media Queries (390px - 768px screens)
+   ========================================================= */
+@media (max-width: 768px) {
+  /* 1. Navbar dropdown overlap fix */
+  .navbar-collapse {
+    background-color: #ffffff !important;
+    padding: 1rem 0;
+  }
+
+  .search-container {
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search-btn {
+    width: 100%;
+    margin-top: 0.5rem;
+    padding: 0.5rem !important;
+  }
+
+  /* 2. Filter & Tax layout stacking */
+  .container-button {
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  /* Arrow button wapas show karne ke liye */
+  .arrow-btn-wrapper {
+    display: flex !important;
+    z-index: 10;
+  }
+
+  #slide-right-wrapper {
+    right: 3rem !important;
+  }
+
+  #slide-left-wrapper {
+    left: 0 !important;
+  }
+
+  /* Padding adjust ki taaki buttons filter text ko na chhupayein */
+  #filters {
+    padding: 0 2.5rem !important;
+    overflow-x: auto !important;
+  }
+
+  .filter {
+    margin-right: 1.5rem !important;
+  }
+
+  .tax-toggle {
+    width: 100% !important;
+    min-width: unset !important;
+    justify-content: center !important;
+    margin: 1rem auto 0 auto !important;
+  }
+
+
+   /* Flash message alert fix for mobile */
+  .alert {
+    width: 92% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    font-size: 0.9rem;
+    padding: 0.75rem 2.5rem 0.75rem 1rem !important;
+  }
+
+  .alert-dismissible .btn-close {
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  padding: 0 1rem !important;
+  }
+
+  /* Show Listing */
+  .show-image {
+    height: 18rem !important; /* Mobile par image screen me cleanly fit hogi */
+  }
+  
+  #map {
+    height: 260px !important; /* Mobile ke hisaab se map height */
+  }
+
+  .show-card, 
+  .row.mt-4 {
+    margin-top: 1.5rem !important;
+  }
+}
+
+
